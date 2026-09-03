@@ -14,21 +14,15 @@ def resource_path(relative_path):
 ICON_PATH = resource_path("icon.icns")
 
 def send_notification():
-    notification = Notify(
-        default_notification_application_name="Eye Break",
-        default_notification_application_icon=ICON_PATH)
-    notification.title = "Eye Break 👀"
+    notification = Notify(default_notification_application_name="Eye Break 👀")
+    notification.title = ""
     notification.message = "Time to take a break and do your eye exercises!"
-    notification.icon = ICON_PATH
     notification.send()
 
 def main():
-    notification = Notify(
-        default_notification_application_name="Eye Break",
-        default_notification_application_icon=ICON_PATH)
+    notification = Notify(default_notification_application_name="Eye Break")
     notification.title = "Eye Timer Started"
     notification.message = "The eye timer is now running. You will receive a notification every 20 minutes."
-    notification.icon = ICON_PATH
     notification.send()
     while True:
         time.sleep(BREAK_INTERVAL)
